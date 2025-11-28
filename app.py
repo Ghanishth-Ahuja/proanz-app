@@ -406,14 +406,13 @@ def upload():
         return jsonify({'error': error_msg}), 500
 
 if __name__ == '__main__':
+    # Only create database tables on direct run (optional)
     with app.app_context():
         db.create_all()
         logger.info('Created database tables')
-    try:
-        logger.info('Starting ProAnz application')
-        socketio.run(app, debug=False, host='0.0.0.0', port=5000, allow_unsafe_werkzeug=True)
-    except Exception as e:
-        logger.error(f'Failed to start application: {str(e)}')
-        traceback.print_exc()
+
+    logger.info('App ready for Gunicorn/Render')
+    # Do NOT call socketio.run() in production; Gunicorn handles SocketIO
+
 
 
