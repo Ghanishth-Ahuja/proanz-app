@@ -6,8 +6,10 @@ RUN apt-get update && apt-get install -y \
     gfortran \
     git \
     curl \
-    libatlas-base-dev \
+    liblapack-dev \
+    libblas-dev \
     && rm -rf /var/lib/apt/lists/*
+
 
 # Create workdir
 WORKDIR /app
