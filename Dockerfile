@@ -23,9 +23,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy your app code
 COPY . .
 
-# Expose port
-EXPOSE 3000
+
 
 # Start your app using Render's $PORT
-CMD ["gunicorn", "--worker-class", "eventlet", "-w", "1", "-b", "0.0.0.0:$PORT", "app:app"]
+CMD gunicorn --worker-class eventlet -w 1 -b 0.0.0.0:$PORT app:app
 
