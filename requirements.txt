@@ -4,18 +4,14 @@ python-socketio==5.11.2
 python-engineio==4.9.0
 
 pandas==2.2.3
-numpy==1.26.4
 
 plotly==5.23.0
 
-# Prophet + its dependencies (FIX)
 prophet==1.1.5
 cmdstanpy==1.2.2
 pystan==3.7.0
 
-# For database
 flask_sqlalchemy
 
-# Production server
 gunicorn==22.0.0
 eventlet==0.36.1
